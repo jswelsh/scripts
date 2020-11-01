@@ -25,3 +25,30 @@ function onOpen() {
   ];
   ss.addMenu("Export JSON", menuEntries);
 }
+
+
+
+
+
+
+function makeLabel(app, text, id) {
+  var lb = app.createLabel(text);
+  if (id) lb.setId(id);
+  return lb;
+}
+
+function makeListBox(app, name, items) {
+  var listBox = app.createListBox().setId(name).setName(name);
+  listBox.setVisibleItemCount(1);
+  
+  var cache = CacheService.getPublicCache();
+  var selectedValue = cache.get(name);
+  Logger.log(selectedValue);
+  for (var i = 0; i < items.length; i++) {
+    listBox.addItem(items[i]);
+    if (items[1] == selectedValue) {
+      listBox.setSelectedIndex(i);
+    }
+  }
+  return listBox;
+}
