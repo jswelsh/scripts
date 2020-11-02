@@ -16,7 +16,6 @@ var DEFAULT_FORMAT = FORMAT_PRETTY;
 var DEFAULT_LANGUAGE = LANGUAGE_JS;
 var DEFAULT_STRUCTURE = STRUCTURE_LIST;
 
-
 function onOpen() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var menuEntries = [
@@ -60,7 +59,6 @@ function makeTextBox(app, name) {
   var textArea    = app.createTextArea().setWidth('100%').setHeight('200px').setId(name).setName(name);
   return textArea;
 }
-
 
 function exportAllSheets(e) {
   
